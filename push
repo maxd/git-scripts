@@ -6,33 +6,33 @@ remote_branch=`git config branch.$local_branch.merge | sed 's/refs\/heads\///'`
 
 echo && \
 echo -e '\033[0;36mSwitching to the origin branch last commit' && \
-echo -e '====================================================\033[m' && \
+echo -e '==========================================\033[m' && \
 git checkout --quiet $repository'/'$remote_branch && \
 
 echo && \
 echo -e '\033[0;36mPulling the latest changes from origin' && \
-echo -e '================================================\033[m' && \
+echo -e '======================================\033[m' && \
 git pull $repository $remote_branch && \
 
 commit_hash=`git rev-parse HEAD`
 echo && \
 echo -e '\033[0;36mGetting back to private branch' && \
-echo -e '========================================\033[m' && \
+echo -e '==============================\033[m' && \
 git checkout --quiet $local_branch && \
 
 echo && \
 echo -e '\033[0;36mRebasing your branch on origin' && \
-echo -e '========================================\033[m' && \
+echo -e '==============================\033[m' && \
 git rebase $commit_hash && \
 
 echo && \
 echo -e '\033[0;36mPushing your changes to origin' && \
-echo -e '========================================\033[m' && \
+echo -e '==============================\033[m' && \
 git push $repository $remote_branch && \
 
 echo && \
 echo -e '\033[0;36mPull tags from server' && \
-echo -e '===============================\033[m' && \
+echo -e '=====================\033[m' && \
 git fetch --tags && \
 
 echo
