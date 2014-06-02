@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 local_branch=`git name-rev --name-only HEAD`
 repository=`git config branch.$local_branch.remote`
 remote_branch=`git config branch.$local_branch.merge | sed 's/refs\/heads\///'`
