@@ -2,7 +2,7 @@
 
 set -e
 
-local_branch=`git name-rev --name-only HEAD`
+local_branch=`git name-rev --name-only --exclude='remotes/*' HEAD`
 repository=`git config branch.$local_branch.remote`
 remote_branch=`git config branch.$local_branch.merge | sed 's/refs\/heads\///'`
 
